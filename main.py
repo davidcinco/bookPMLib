@@ -4,6 +4,8 @@ from etl.extract import Extract
 from etl.transform import Transform
 from etl.load import Load
 
+from etl.visualize import genre_distribution
+
 
 #ETL Process
 #Extract 
@@ -12,7 +14,8 @@ data = extractor.extract()
 
 #Transform
 transformer = Transform(data)
-transformer.transform()
+transformed_data = transformer.transform()
 
+genre_distribution(transformed_data)
 # loader = Load(destination="./destination/books.csv")
 # loader.load(data)
